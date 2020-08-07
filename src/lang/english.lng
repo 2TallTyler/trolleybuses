@@ -1,0 +1,7 @@
+##grflangid 0x01
+
+STR_GRF_NAME						:{TITLE} {VERSION}
+STR_GRF_DESC						:{ORANGE}Pre-release test GRF for 2CC Trolleybuses.
+
+STR_NAME_NEOPLAN_AN440				:Neoplan Transliner
+STR_EXTRA_NEOPLAN_AN440				:{BLACK}Operator: {GOLD}Boston MBTA

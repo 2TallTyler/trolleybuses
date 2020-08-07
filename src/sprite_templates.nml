@@ -1,0 +1,28 @@
+// Begin Sprite Templates
+
+template template_1x_40_foot_bus(x, y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ x,		y,		9,		31,		-4,			-18]
+    [ x+17,		y,		26,		27,		-16,		-16]
+    [ x+51,		y,		36,		23,		-21,		-18]
+    [ x+95,		y,		26,		27,		-14,		-18]
+    [ x+129,	y,		9,		25,		-4,			-17]
+    [ x+146,	y,		26,		24,		-12,		-17]
+    [ x+180,	y,		36,		20,		-14,		-15]
+    [ x+224,	y,		26,		24,		-10,		-15]
+}
+
+template template_2x_40_foot_bus(x, y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ x,		y,		18,		62,		-9,			-36]
+    [ x+34,		y,		52,		54,		-33,		-32]
+    [ x+102,	y,		72,		46,		-43,		-36]
+    [ x+190,	y,		52,		54,		-28,		-37]
+    [ x+258,	y,		18,		50,		-9,			-34]
+    [ x+292,	y,		52,		48,		-24,		-34]
+    [ x+360,	y,		72,		40,		-28,		-31]
+    [ x+448,	y,		52,		48,		-20,		-30]
+}
+
+
+// End Sprite Templates

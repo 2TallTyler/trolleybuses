@@ -1,0 +1,22 @@
+// Begin Header
+
+grf {
+	grfid: "TT\10\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 0;
+	min_compatible_version: 0;
+}
+
+cargotable {
+	PASS
+}
+
+roadtypetable {
+	ELRD
+}
+
+// Disable base game buses
+disable_item(FEAT_ROADVEHS, 0, 6);
+
+// End Header

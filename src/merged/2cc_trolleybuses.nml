@@ -1,0 +1,103 @@
+// Begin Header
+
+grf {
+	grfid: "TT\10\01";
+	name: string(STR_GRF_NAME);
+	desc: string(STR_GRF_DESC);
+	version: 0;
+	min_compatible_version: 0;
+}
+
+cargotable {
+	PASS
+}
+
+roadtypetable {
+	ELRD
+}
+
+// Disable base game buses
+disable_item(FEAT_ROADVEHS, 0, 6);
+
+// End Header
+// Begin Sprite Templates
+
+template template_1x_40_foot_bus(x, y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ x,		y,		9,		31,		-4,			-18]
+    [ x+17,		y,		26,		27,		-16,		-16]
+    [ x+51,		y,		36,		23,		-21,		-18]
+    [ x+95,		y,		26,		27,		-14,		-18]
+    [ x+129,	y,		9,		25,		-4,			-17]
+    [ x+146,	y,		26,		24,		-12,		-17]
+    [ x+180,	y,		36,		20,		-14,		-15]
+    [ x+224,	y,		26,		24,		-10,		-15]
+}
+
+template template_2x_40_foot_bus(x, y) {
+    //left_x, upper_y, width, height, offset_x, offset_y
+    [ x,		y,		18,		62,		-9,			-36]
+    [ x+34,		y,		52,		54,		-33,		-32]
+    [ x+102,	y,		72,		46,		-43,		-36]
+    [ x+190,	y,		52,		54,		-28,		-37]
+    [ x+258,	y,		18,		50,		-9,			-34]
+    [ x+292,	y,		52,		48,		-24,		-34]
+    [ x+360,	y,		72,		40,		-28,		-31]
+    [ x+448,	y,		52,		48,		-20,		-30]
+}
+
+
+// End Sprite Templates
+// Being Neoplan AN-440 (Boston MBTA)
+
+spriteset(spriteset_neoplan_an440, "src\gfx\neoplan_an440_1x_8bpp.png") {
+    template_1x_40_foot_bus(0,0)
+}
+
+alternative_sprites(spriteset_neoplan_an440, ZOOM_LEVEL_IN_2X, BIT_DEPTH_8BPP, "src\gfx\neoplan_an440_2x_8bpp.png") {
+	template_2x_40_foot_bus(0,0)
+}
+
+spritegroup spritegroup_neoplan_an440 {
+	loaded:		[spriteset_neoplan_an440];
+	loading:	[spriteset_neoplan_an440];
+}
+
+item(FEAT_ROADVEHS, item_neoplan_an440) {
+	property {
+		/* Common properties */
+		name: 						string(STR_NAME_NEOPLAN_AN440);
+		climates_available: 		ALL_CLIMATES;
+		introduction_date:			date(2001,01,01);
+		model_life:					VEHICLE_NEVER_EXPIRES;
+		vehicle_life:				20;
+		reliability_decay:			15;
+		refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		loading_speed:				5;
+		cost_factor:				65;
+		running_cost_factor:		60;
+		
+		/* Road vehicle-specific porperties */
+		sprite_id:					SPRITE_ID_NEW_ROADVEH; //enable new graphics
+		speed:						40 mph;
+		road_type:					ELRD;
+		misc_flags:					bitmask(ROADVEH_FLAG_2CC);
+        refit_cost:					0;
+		running_cost_base:			RUNNING_COST_ROADVEH;
+		
+		power:						275 hp;
+		weight:						13 ton;
+				
+		default_cargo_type:			PASS;
+		cargo_capacity:				47;
+		
+		sound_effect:				SOUND_CAR_HORN_2;
+		visual_effect:				visual_effect(VISUAL_EFFECT_ELECTRIC, 6);
+		
+		length:						7;
+	}
+	graphics {
+		default: 					spritegroup_neoplan_an440;
+		additional_text:			string(STR_EXTRA_NEOPLAN_AN440);
+	}
+}
