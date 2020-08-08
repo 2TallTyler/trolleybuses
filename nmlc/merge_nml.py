@@ -20,6 +20,10 @@ neoplan_an440 = codecs.open("src/neoplan_an440.nml",'r','utf8')
 sections.append(neoplan_an440.read())
 neoplan_an440.close()
 
+flyer_e800 = codecs.open("src/flyer_e800.nml",'r','utf8')
+sections.append(flyer_e800.read())
+flyer_e800.close()
+
 print("Python: Writing combined NML file")
 
 # create a new file on disk, which will have a name and be writable

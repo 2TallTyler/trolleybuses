@@ -98,6 +98,59 @@ item(FEAT_ROADVEHS, item_neoplan_an440) {
 	}
 	graphics {
 		default: 					spritegroup_neoplan_an440;
-		additional_text:			string(STR_EXTRA_NEOPLAN_AN440);
+		additional_text:			string(STR_OPERATOR_BOSTON_MBTA);
+	}
+}
+// Being Neoplan AN-440 (Boston MBTA)
+
+spriteset(spriteset_flyer_e800, "src\gfx\flyer_e800_1x_8bpp.png") {
+    template_1x_40_foot_bus(0,0)
+}
+
+alternative_sprites(spriteset_flyer_e800, ZOOM_LEVEL_IN_2X, BIT_DEPTH_8BPP, "src\gfx\flyer_e800_2x_8bpp.png") {
+	template_2x_40_foot_bus(0,0)
+}
+
+spritegroup spritegroup_flyer_e800 {
+	loaded:		[spriteset_flyer_e800];
+	loading:	[spriteset_flyer_e800];
+}
+
+item(FEAT_ROADVEHS, item_flyer_e800) {
+	property {
+		/* Common properties */
+		name: 						string(STR_NAME_FLYER_E800);
+		climates_available: 		ALL_CLIMATES;
+		introduction_date:			date(1974,01,01);
+		model_life:					VEHICLE_NEVER_EXPIRES;
+		vehicle_life:				20;
+		reliability_decay:			15;
+		refittable_cargo_classes:	bitmask(CC_PASSENGERS);
+		loading_speed:				5;
+		cost_factor:				65;
+		running_cost_factor:		60;
+		
+		/* Road vehicle-specific porperties */
+		sprite_id:					SPRITE_ID_NEW_ROADVEH; //enable new graphics
+		speed:						40 mph;
+		road_type:					ELRD;
+		misc_flags:					bitmask(ROADVEH_FLAG_2CC);
+        refit_cost:					0;
+		running_cost_base:			RUNNING_COST_ROADVEH;
+		
+		power:						154 hp;
+		weight:						12 ton;
+				
+		default_cargo_type:			PASS;
+		cargo_capacity:				66;
+		
+		sound_effect:				SOUND_CAR_HORN_2;
+		visual_effect:				visual_effect(VISUAL_EFFECT_ELECTRIC, 6);
+		
+		length:						7;
+	}
+	graphics {
+		default: 					spritegroup_flyer_e800;
+		additional_text:			string(STR_OPERATOR_BOSTON_MBTA);
 	}
 }
